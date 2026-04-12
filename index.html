@@ -1,0 +1,901 @@
+<!DOCTYPE HTML>
+<!--
+	Photon by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+	<title>個人作品集 Portfolio</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<noscript>
+		<link rel="stylesheet" href="assets/css/noscript.css" />
+	</noscript>
+	<!-- 引入更具特色的中英文字體，取代常見的系統或泛用字體 -->
+	<link
+		href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Outfit:wght@300;400;500&family=Syne:wght@500;700;800&display=swap"
+		rel="stylesheet">
+	<style>
+		/* === Aesthetic Optimization based on 'Neon Monolith' Theme === */
+		:root {
+			--bg-main: #0B0F19;
+			/* 提亮底色，帶有深海色調，擺脫純黑的暗沉 */
+			--bg-surface: #1A202C;
+			/* 建立對比鮮明的交替表面色 */
+			--accent: #2DD4BF;
+			/* 更清爽、明亮的薄荷青色 (Teal) */
+			--accent-dim: rgba(45, 212, 191, 0.2);
+			--accent-glow: rgba(45, 212, 191, 0.4);
+			--text-main: #F8FAFC;
+			/* 更純淨的亮白 */
+			--text-muted: #A0AEC0;
+			/* 提高次要文字明度，增強易讀性 */
+			--font-display: 'Syne', 'Noto Sans TC', sans-serif;
+			--font-body: 'Outfit', 'Noto Sans TC', sans-serif;
+		}
+
+		/* Typography & Backgrounds */
+		body {
+			background-color: var(--bg-main) !important;
+			background-image:
+				radial-gradient(circle at 15% 0%, var(--accent-dim) 0%, transparent 40%),
+				radial-gradient(circle at 85% 100%, var(--accent-dim) 0%, transparent 40%) !important;
+			font-family: var(--font-body) !important;
+			color: var(--text-muted) !important;
+		}
+
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6,
+		strong,
+		b {
+			font-family: var(--font-display) !important;
+			color: var(--text-main) !important;
+			letter-spacing: -0.02em;
+		}
+
+		a {
+			color: var(--text-main) !important;
+			border-bottom-color: rgba(255, 255, 255, 0.2) !important;
+			transition: all 0.3s ease !important;
+		}
+
+		a:hover {
+			color: var(--accent) !important;
+			text-shadow: 0 0 8px var(--accent-dim);
+			border-bottom-color: var(--accent) !important;
+		}
+
+		hr {
+			border-bottom-color: rgba(255, 255, 255, 0.05) !important;
+		}
+
+		/* Component Overrides - 強化區段分界 */
+		.main {
+			border-top: 1px solid rgba(255, 255, 255, 0.04);
+			border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+		}
+
+		.main.style1 {
+			background-color: var(--bg-main) !important;
+			background-image: none !important;
+		}
+
+		.main.style2 {
+			background-color: var(--bg-surface) !important;
+			background-image: none !important;
+			box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15) !important;
+			/* 增加上下區塊的立體深度 */
+		}
+
+		#header {
+			background-color: transparent !important;
+			border: none;
+		}
+
+		#header:after {
+			display: none !important;
+		}
+
+		#footer {
+			background-color: var(--bg-main) !important;
+			background-image: none !important;
+			border-top: 1px solid rgba(255, 255, 255, 0.05);
+		}
+
+		/* Navigation */
+		#nav {
+			background-color: rgba(11, 15, 25, 0.8) !important;
+			backdrop-filter: blur(12px);
+			-webkit-backdrop-filter: blur(12px);
+			border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+			box-shadow: none !important;
+		}
+
+		#nav .nav-logo a {
+			font-family: var(--font-display);
+			color: var(--accent) !important;
+			letter-spacing: -0.02em;
+		}
+
+		#nav ul li a {
+			font-family: var(--font-body);
+			color: var(--text-main) !important;
+		}
+
+		#nav ul li a:hover {
+			background-color: var(--accent-dim) !important;
+			color: var(--accent) !important;
+		}
+
+		/* Brutalist Image / Map Cards */
+		.image img {
+			border-radius: 4px !important;
+			/* 稍微柔和化邊角，不再那麼生硬 */
+			border: 1px solid rgba(255, 255, 255, 0.1);
+			box-shadow: 6px 6px 0px var(--accent-dim);
+			transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+			filter: grayscale(10%) contrast(1.05);
+		}
+
+		.image:hover img {
+			transform: translate(-4px, -4px);
+			box-shadow: 10px 10px 0px var(--accent-glow);
+			filter: grayscale(0%) contrast(1);
+		}
+
+		.map-container {
+			position: relative;
+			padding-bottom: 56.25%;
+			height: 0;
+			border-radius: 4px;
+			border: 1px solid rgba(255, 255, 255, 0.1);
+			box-shadow: 6px 6px 0px var(--accent-dim);
+			transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+			overflow: hidden;
+			/* 防止地圖尖角溢出 */
+		}
+
+		.map-container:hover {
+			transform: translate(-4px, -4px);
+			box-shadow: 10px 10px 0px var(--accent-glow);
+		}
+
+		.map-container iframe {
+			border: 0;
+			filter: grayscale(15%) contrast(1.05);
+			transition: filter 0.4s ease;
+		}
+
+		.map-container:hover iframe {
+			filter: grayscale(0%) contrast(1);
+		}
+
+		/* Buttons */
+		input[type="submit"],
+		input[type="reset"],
+		input[type="button"],
+		button,
+		.button {
+			font-family: var(--font-display) !important;
+			border-radius: 4px !important;
+			background-color: transparent !important;
+			box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.4) !important;
+			color: var(--text-main) !important;
+			text-transform: uppercase;
+			letter-spacing: 0.1em;
+			transition: all 0.3s ease !important;
+		}
+
+		input[type="submit"]:hover,
+		.button:hover {
+			background-color: rgba(255, 255, 255, 0.05) !important;
+			color: var(--accent) !important;
+			box-shadow: inset 0 0 0 1px var(--accent) !important;
+		}
+
+		input[type="submit"].primary,
+		.button.primary {
+			background-color: var(--accent) !important;
+			color: #000 !important;
+			box-shadow: none !important;
+			font-weight: 700;
+		}
+
+		input[type="submit"].primary:hover,
+		.button.primary:hover {
+			background-color: var(--text-main) !important;
+			color: var(--bg-main) !important;
+			transform: translateY(-2px);
+			box-shadow: 0 6px 16px var(--accent-glow) !important;
+		}
+
+		/* Motion - Staggered Page Load */
+		@keyframes revealUp {
+			0% {
+				opacity: 0;
+				transform: translateY(30px);
+			}
+
+			100% {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+
+		.reveal-1 {
+			animation: revealUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
+			opacity: 0;
+		}
+
+		.reveal-2 {
+			animation: revealUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+			opacity: 0;
+		}
+
+		.reveal-3 {
+			animation: revealUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
+			opacity: 0;
+		}
+
+		/* Icons & Details */
+		.icon.major {
+			color: var(--accent) !important;
+		}
+
+		ul.major-icons li .icon {
+			border-color: rgba(255, 255, 255, 0.1) !important;
+		}
+
+		header.major:after {
+			background: var(--accent) !important;
+			height: 2px !important;
+		}
+	</style>
+</head>
+
+<body class="is-preload">
+
+	<!-- Navigation -->
+	<nav id="nav">
+		<div class="nav-logo">
+			<a href="#header" class="scrolly">Talim Chen</a>
+		</div>
+		<ul>
+			<li><a href="#header" class="scrolly">首頁</a></li>
+			<li><a href="#about" class="scrolly">關於我</a></li>
+			<li><a href="#skills" class="scrolly">專業技能</a></li>
+			<li><a href="#maps" class="scrolly">地圖集</a></li>
+			<li><a href="#portfolio" class="scrolly">其他作品</a></li>
+			<li><a href="#contact" class="scrolly">聯絡我</a></li>
+		</ul>
+	</nav>
+
+	<!-- Header -->
+	<section id="header">
+		<div class="inner">
+			<h1 class="reveal-1">你好，我是 <strong>陳詠旭</strong></h1>
+			<!-- 修改 2: 加入打字機特效的容器 -->
+			<p class="reveal-2">我擅長 <span id="typing-text"
+					style="color: var(--accent); border-bottom: 2px solid var(--accent-dim);"></span><span
+					class="cursor" style="color: var(--accent);">|</span></p>
+			<ul class="actions special reveal-3">
+				<li><a href="#about" class="button primary scrolly">瞭解更多</a></li>
+			</ul>
+		</div>
+	</section>
+
+	<!-- One -->
+	<section id="about" class="main style1">
+		<div class="container">
+			<div class="row gtr-150">
+				<div class="col-6 col-12-medium">
+					<header class="major">
+						<h2>關於我<br />
+							About Me</h2>
+					</header>
+					<p>我是一名對吸收事物充滿動力的學習者。過往以來，除了接收本科的資訊及商業資訊外，我也不斷活用校園提供的資源，探索各種領域的知識。因為在這個快速變化的科技時代，保有人文素養與知能才是做為人的獨特之處以及競爭力所在。但程式技能的鞏固仍是相當重要的一部分，因此我保持著持續學習的熱情，不斷探索新的工具與方法。
+					</p>
+					<h5>課程專案經歷</h5>
+					<ul>
+						<li>113-2：二手票券交易平臺．．．．．．資料庫管理　第一名</li>
+						<li>113-1：午餐配送合作平臺．．．．．．．資訊管理　第一名</li>
+						<li>112-1：二手書交易媒合平臺．．．．．程式設計一　第一名</li>
+					</ul>
+				</div>
+				<div class="col-6 col-12-medium imp-medium">
+					<span class="image fit" style="max-width: 55%; margin: 0 auto;"><img src="images\DSC_7298.jpg"
+							alt="" /></span>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Two -->
+	<section id="skills" class="main style2">
+		<div class="container">
+			<div class="row gtr-150">
+				<div class="col-6 col-12-medium">
+					<ul class="major-icons">
+						<li><span class="icon solid style1 major fa-code"></span></li>
+						<li><span class="icon solid style2 major fa-bolt"></span></li>
+						<li><span class="icon solid style3 major fa-camera-retro"></span></li>
+						<li><span class="icon solid style4 major fa-cog"></span></li>
+						<li><span class="icon solid style5 major fa-desktop"></span></li>
+						<li><span class="icon solid style6 major fa-calendar"></span></li>
+					</ul>
+				</div>
+				<div class="col-6 col-12-medium">
+					<header class="major">
+						<h2>專業技能<br />
+							Professional Skills</h2>
+					</header>
+					<p>在大學的學習過程中，我努力累積各方面的技術能力。從前端介面到後端系統，我都有嘗試開發的經驗，也很喜歡與同學一起組隊協作。我正在學習如何朝現代化的開發流程前進，並練習寫出更好維護、效能更好的程式碼。
+					</p>
+					<p>除了寫程式，我也在課堂與專案中學習使用各種工具來增加效率，像是 Git
+						版本控制或雲端部署等。省下來的更多時間是為了下一個專案而留，不斷的精進與站在使用者的角度思考，才能為這個世界提出有用的方案，以及帶來改變的力量。</p>
+					<p>對我來說，保持學習的熱情很重要。我會持續挑戰自己，並把學到的新技術應用在未來的專案中。</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Maps -->
+	<section id="maps" class="main style1 special">
+		<div class="container">
+			<header class="major">
+				<h2>地圖集 Map Collection</h2>
+			</header>
+			<p>這裡展示了我使用 Google My Maps 製作的各項主題地圖，歡迎點擊與縮放查看詳細資訊（建議另開視窗檢視）。</p>
+			<div class="row gtr-150">
+				<div class="col-6 col-12-medium">
+					<div class="map-container">
+						<!-- 第一張地圖：請將下方 src 替換為您的 Google My Map 嵌入連結 -->
+						<iframe
+							src="https://www.google.com/maps/d/embed?mid=1qGmhnAU1V6KEaykm9FyLHJbfy_LAJlzs&ehbc=2E312F"
+							style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+							allowfullscreen></iframe>
+					</div>
+					<h3 style="margin-top: 1.5em;">台北街道名稱史 2020/02</h3>
+					<p>將維基百科<a
+							href="https://w.wiki/KDWu">《臺北市道路列表》</a>中「命名沿革」一節所提及的街道名稱加以整理，並視覺化呈現於地圖上。使街道名稱與地理位置之間的關聯更加清晰。
+					</p>
+				</div>
+				<div class="col-6 col-12-medium">
+					<div class="map-container">
+						<!-- 第二張地圖：請將下方 src 替換為您的第二個 Google My Map 嵌入連結 -->
+						<iframe
+							src="https://www.google.com/maps/d/embed?mid=1wdkE63dZIjsV67wHhsatoZYd3bnPn_g&ehbc=2E312F"
+							style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+							allowfullscreen></iframe>
+					</div>
+					<h3 style="margin-top: 1.5em;">台灣的古城 2020/09</h3>
+					<p>將維基百科<a href="https://w.wiki/KDXu">《臺灣城池》</a>模板中有明確提及位置的臺灣本島官修城池資料進行整理並標定於地圖上。呈現出古城與現代城市間的交錯關係。
+					</p>
+				</div>
+			</div>
+			<hr style="margin-top: 4em;" />
+		</div>
+	</section>
+
+	<!-- Three (修改成 style2 確保與上方 maps 及下方 contact 交替背景色) -->
+	<section id="portfolio" class="main style2 special">
+		<div class="container">
+			<header class="major">
+				<h2>其他精選作品 Portfolio</h2>
+			</header>
+			<p>以下是我近期實作的一些代表性專案，包含個人及團隊作品，涵蓋了不同的領域與技術應用。</p>
+			<div class="row gtr-150">
+				<div class="col-12">
+					<span class="image fit" style="max-width: 60%; margin: 0 auto 2em auto;"><img
+							src="images/screenshot-1772960850542.png" alt="" /></span>
+					<h3><a href="https://nccupro.onrender.com/" target="_blank">NCCU Pro－政大個人化學程潛能分析師</a></h3>
+					<p>這是一個開源工具，旨在解決政大學生無法快速得知修課歷程與學程要求的差距，以及無法有效找到與興趣專長相符的學程之問題。透過上傳從校務全人系統匯出的「課業學習」JSON
+						檔案，即可快速檢核學分學程或微學程的修習進度，並提供智慧推薦功能。<br />本專案使用 Go 與 Vue 3 開發，支援 PWA 與資料不落地隱私保護。</p>
+					<ul class="actions special">
+						<li><a href="https://github.com/LynxTC/NCCU-Pro.git" class="button">Github</a></li>
+					</ul>
+				</div>
+				<div class="col-12" style="text-align: left;">
+					<span class="image left"><img src="images/screenshot-1773060133528.png" alt="" /></span>
+					<h3><a href="https://lynxtc.github.io/taipei-1999-dashboard/" target="_blank">臺北市 1999 派工資料互動儀表板</a>
+					</h3>
+					<p>這是一個數據分析儀表板，透過解析臺北市政府官方 API，提供即時的數據視覺化功能，便於瞭解當前市政需求趨勢。並提供互動式操作介面，增強使用者體驗。</p>
+					<ul class="actions">
+						<li><a href="https://github.com/LynxTC/taipei-1999-dashboard.git" target="_blank"
+								class="button">Github</a></li>
+					</ul>
+				</div>
+				<div class="col-12" style="text-align: left;">
+					<span class="image left"><img src="images/螢幕擷取畫面 2026-03-09 193531.png" alt="" /></span>
+					<h3><a href="https://lynxtc.github.io/fakenews-detect-AI-app-intro/" target="_blank">「AI
+							在假新聞判別的應用」介紹網頁</a><br /><small style="font-size: 0.6em; color: var(--text-muted);">112-1
+							計算機概論
+							加分作品</small></h3>
+					<p>活用在課堂所學的 HTML、CSS 和 JavaScript 技術，打造出簡潔的介紹網頁。<br />將整理出的資料以數位形式展示，讓使用者易於理解。</p>
+					<ul class="actions">
+						<li><a href="https://github.com/LynxTC/fakenews-detect-AI-app-intro.git" target="_blank"
+								class="button">Github</a></li>
+					</ul>
+				</div>
+				<div class="col-12">
+					<h3 style="margin-top: 2em;">課程專案代表作品</h3>
+				</div>
+				<div class="col-4 col-12-medium" style="margin: 0 auto;">
+					<span class="image fit"><img src="images/DBMS Group16.png" alt="" /></span>
+					<h3>二手票券交易平臺<br /><small style="font-size: 0.6em; color: var(--text-muted);">113-2 資料庫管理
+							第一名作品</small>
+					</h3>
+					<p>本專案為一個基於 Spring Boot 服務的系統，提供票券管理、使用者管理與交易處理等功能。專案使用 RESTful API 架構，並透過 Maven 管理依賴。</p>
+					<ul class="actions special">
+						<li><a href="https://github.com/LynxTC/ticket-transaction.git" class="button">Github</a></li>
+					</ul>
+				</div>
+				<div class="col-4 col-12-medium" style="margin: 0 auto;">
+					<span class="image fit"><img src="images/screenshot-1773070677185.png" alt="" /></span>
+					<h3>午餐配送合作平臺 <br /><small style="font-size: 0.6em; color: var(--text-muted);">113-1 資訊管理
+							第一名作品</small>
+					</h3>
+					<p>本構想期望以平臺的建置，解決多年來師生每到午餐時間總要在餐廳外排隊的問題，藉此提升校園用餐體驗與建立互助。</p>
+					<ul class="actions special">
+						<li><a href="https://www.figma.com/proto/FeNVdUN9sOzHy1F3ul7zKp/%E4%BE%BF%E7%95%B6%E6%95%B4%E5%90%88%E7%B3%BB%E7%B5%B1-APP-%E4%BB%8B%E9%9D%A2?node-id=1-2&p=f&t=TQvJk4DwCv7s9ohf-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A2"
+								class="button">Figma 演示</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Four (修改成 style1 確保背景交替連續) -->
+	<section id="contact" class="main style1 special">
+		<div class="container">
+			<header class="major">
+				<h2>願意進一步合作？</h2>
+			</header>
+			<p>如果您有任何專案需求或合作機會，歡迎隨時與我聯繫。</p>
+			<ul class="actions special">
+				<li><a href="mailto:91talim@gmail.com" class="button wide primary">聯絡我</a></li>
+				<li><a href="https://www.canva.com/design/DAFu9jHVqIs/1GOTVhoyNL41kYp91XUpZw/view?utm_content=DAFu9jHVqIs&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hce60e69cc4"
+						class="button wide">查看履歷</a></li>
+			</ul>
+		</div>
+	</section>
+
+	<!-- Five -->
+
+	<!--<section id="five" class="main style1">
+		<div class="container">
+			<header class="major special">
+				<h2>Elements</h2>
+			</header>
+
+			<section>
+				<h4>Text</h4>
+				<p>This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i> and this is
+					<em>emphasized</em>.
+					This is <sup>superscript</sup> text and this is <sub>subscript</sub> text.
+					This is <u>underlined</u> and this is code: <code>for (;;) { ... }</code>. Finally, <a href="#">this
+						is a link</a>.
+				</p>
+				<hr />
+				<header>
+					<h4>Heading with a Subtitle</h4>
+					<p>Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p>
+				</header>
+				<p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non
+					faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan
+					varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>
+				<header>
+					<h5>Heading with a Subtitle</h5>
+					<p>Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p>
+				</header>
+				<p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non
+					faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan
+					varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>
+				<hr />
+				<h2>Heading Level 2</h2>
+				<h3>Heading Level 3</h3>
+				<h4>Heading Level 4</h4>
+				<h5>Heading Level 5</h5>
+				<h6>Heading Level 6</h6>
+				<hr />
+				<h5>Blockquote</h5>
+				<blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget tempus
+					euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis
+					volutpat ac adipiscing accumsan faucibus. Vestibulum ante ipsum primis in faucibus lorem ipsum dolor
+					sit amet nullam adipiscing eu felis.</blockquote>
+				<h5>Preformatted</h5>
+				<pre><code>i = 0;
+
+while (!deck.isInOrder()) {
+print 'Iteration ' + i;
+deck.shuffle();
+i++;
+}
+
+print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
+			</section>
+
+			<section>
+				<h4>Lists</h4>
+				<div class="row">
+					<div class="col-6 col-12-medium">
+						<h5>Unordered</h5>
+						<ul>
+							<li>Dolor pulvinar etiam.</li>
+							<li>Sagittis adipiscing.</li>
+							<li>Felis enim feugiat.</li>
+						</ul>
+						<h5>Alternate</h5>
+						<ul class="alt">
+							<li>Dolor pulvinar etiam.</li>
+							<li>Sagittis adipiscing.</li>
+							<li>Felis enim feugiat.</li>
+						</ul>
+					</div>
+					<div class="col-6 col-12-medium">
+						<h5>Ordered</h5>
+						<ol>
+							<li>Dolor pulvinar etiam.</li>
+							<li>Etiam vel felis viverra.</li>
+							<li>Felis enim feugiat.</li>
+							<li>Dolor pulvinar etiam.</li>
+							<li>Etiam vel felis lorem.</li>
+							<li>Felis enim et feugiat.</li>
+						</ol>
+						<h5>Icons</h5>
+						<ul class="icons">
+							<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a>
+							</li>
+							<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a>
+							</li>
+							<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
+						</ul>
+					</div>
+				</div>
+				<h5>Actions</h5>
+				<div class="row">
+					<div class="col-6 col-12-medium">
+						<ul class="actions">
+							<li><a href="#" class="button primary">Default</a></li>
+							<li><a href="#" class="button">Default</a></li>
+						</ul>
+						<ul class="actions small">
+							<li><a href="#" class="button primary small">Small</a></li>
+							<li><a href="#" class="button small">Small</a></li>
+						</ul>
+						<ul class="actions stacked">
+							<li><a href="#" class="button primary">Default</a></li>
+							<li><a href="#" class="button">Default</a></li>
+						</ul>
+						<ul class="actions stacked">
+							<li><a href="#" class="button primary small">Small</a></li>
+							<li><a href="#" class="button small">Small</a></li>
+						</ul>
+					</div>
+					<div class="col-6 col-12-medium">
+						<ul class="actions stacked">
+							<li><a href="#" class="button primary fit">Default</a></li>
+							<li><a href="#" class="button fit">Default</a></li>
+						</ul>
+						<ul class="actions stacked">
+							<li><a href="#" class="button primary small fit">Small</a></li>
+							<li><a href="#" class="button small fit">Small</a></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+
+			<section>
+				<h4>Table</h4>
+				<h5>Default</h5>
+				<div class="table-wrapper">
+					<table>
+						<thead>
+							<tr>
+								<th>Name</th>
+								<th>Description</th>
+								<th>Price</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Item One</td>
+								<td>Ante turpis integer aliquet porttitor.</td>
+								<td>29.99</td>
+							</tr>
+							<tr>
+								<td>Item Two</td>
+								<td>Vis ac commodo adipiscing arcu aliquet.</td>
+								<td>19.99</td>
+							</tr>
+							<tr>
+								<td>Item Three</td>
+								<td> Morbi faucibus arcu accumsan lorem.</td>
+								<td>29.99</td>
+							</tr>
+							<tr>
+								<td>Item Four</td>
+								<td>Vitae integer tempus condimentum.</td>
+								<td>19.99</td>
+							</tr>
+							<tr>
+								<td>Item Five</td>
+								<td>Ante turpis integer aliquet porttitor.</td>
+								<td>29.99</td>
+							</tr>
+						</tbody>
+						<tfoot>
+							<tr>
+								<td colspan="2"></td>
+								<td>100.00</td>
+							</tr>
+						</tfoot>
+					</table>
+				</div>
+
+				<h5>Alternate</h5>
+				<div class="table-wrapper">
+					<table class="alt">
+						<thead>
+							<tr>
+								<th>Name</th>
+								<th>Description</th>
+								<th>Price</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Item One</td>
+								<td>Ante turpis integer aliquet porttitor.</td>
+								<td>29.99</td>
+							</tr>
+							<tr>
+								<td>Item Two</td>
+								<td>Vis ac commodo adipiscing arcu aliquet.</td>
+								<td>19.99</td>
+							</tr>
+							<tr>
+								<td>Item Three</td>
+								<td> Morbi faucibus arcu accumsan lorem.</td>
+								<td>29.99</td>
+							</tr>
+							<tr>
+								<td>Item Four</td>
+								<td>Vitae integer tempus condimentum.</td>
+								<td>19.99</td>
+							</tr>
+							<tr>
+								<td>Item Five</td>
+								<td>Ante turpis integer aliquet porttitor.</td>
+								<td>29.99</td>
+							</tr>
+						</tbody>
+						<tfoot>
+							<tr>
+								<td colspan="2"></td>
+								<td>100.00</td>
+							</tr>
+						</tfoot>
+					</table>
+				</div>
+			</section>
+
+			<section>
+				<h4>Buttons</h4>
+				<ul class="actions">
+					<li><a href="#" class="button primary">Primary</a></li>
+					<li><a href="#" class="button">Default</a></li>
+				</ul>
+				<ul class="actions">
+					<li><a href="#" class="button large">Large</a></li>
+					<li><a href="#" class="button">Default</a></li>
+					<li><a href="#" class="button small">Small</a></li>
+				</ul>
+				<ul class="actions fit">
+					<li><a href="#" class="button fit">Fit</a></li>
+					<li><a href="#" class="button primary fit">Fit</a></li>
+					<li><a href="#" class="button fit">Fit</a></li>
+				</ul>
+				<ul class="actions fit small">
+					<li><a href="#" class="button primary fit small">Fit + Small</a></li>
+					<li><a href="#" class="button fit small">Fit + Small</a></li>
+					<li><a href="#" class="button primary fit small">Fit + Small</a></li>
+				</ul>
+				<ul class="actions">
+					<li><a href="#" class="button primary icon solid fa-download">Icon</a></li>
+					<li><a href="#" class="button icon solid fa-download">Icon</a></li>
+				</ul>
+				<ul class="actions">
+					<li><span class="button primary disabled">Disabled</span></li>
+					<li><span class="button disabled">Disabled</span></li>
+				</ul>
+			</section>
+
+			<section>
+				<h4>Form</h4>
+				<form method="post" action="#">
+					<div class="row gtr-uniform gtr-50">
+						<div class="col-6 col-12-xsmall">
+							<input type="text" name="demo-name" id="demo-name" value="" placeholder="Name" />
+						</div>
+						<div class="col-6 col-12-xsmall">
+							<input type="email" name="demo-email" id="demo-email" value="" placeholder="Email" />
+						</div>
+						<div class="col-12">
+							<select name="demo-category" id="demo-category">
+								<option value="">- Category -</option>
+								<option value="1">Manufacturing</option>
+								<option value="1">Shipping</option>
+								<option value="1">Administration</option>
+								<option value="1">Human Resources</option>
+							</select>
+						</div>
+						<div class="col-4 col-12-small">
+							<input type="radio" id="demo-priority-low" name="demo-priority" checked>
+							<label for="demo-priority-low">Low</label>
+						</div>
+						<div class="col-4 col-12-small">
+							<input type="radio" id="demo-priority-normal" name="demo-priority">
+							<label for="demo-priority-normal">Normal</label>
+						</div>
+						<div class="col-4 col-12-small">
+							<input type="radio" id="demo-priority-high" name="demo-priority">
+							<label for="demo-priority-high">High</label>
+						</div>
+						<div class="col-6 col-12-small">
+							<input type="checkbox" id="demo-copy" name="demo-copy">
+							<label for="demo-copy">Email me a copy</label>
+						</div>
+						<div class="col-6 col-12-small">
+							<input type="checkbox" id="demo-human" name="demo-human" checked>
+							<label for="demo-human">Not a robot</label>
+						</div>
+						<div class="col-12">
+							<textarea name="demo-message" id="demo-message" placeholder="Enter your message"
+								rows="6"></textarea>
+						</div>
+						<div class="col-12">
+							<ul class="actions">
+								<li><input type="submit" value="Send Message" class="primary" /></li>
+								<li><input type="reset" value="Reset" /></li>
+							</ul>
+						</div>
+					</div>
+				</form>
+			</section>
+
+			<section>
+				<h4>Image</h4>
+				<h5>Fit</h5>
+				<div class="box alt">
+					<div class="row gtr-uniform gtr-50">
+						<div class="col-12"><span class="image fit"><img src="images/pic06.jpg" alt="" /></span></div>
+						<div class="col-4"><span class="image fit"><img src="images/pic02.jpg" alt="" /></span></div>
+						<div class="col-4"><span class="image fit"><img src="images/pic03.jpg" alt="" /></span></div>
+						<div class="col-4"><span class="image fit"><img src="images/pic04.jpg" alt="" /></span></div>
+						<div class="col-4"><span class="image fit"><img src="images/pic03.jpg" alt="" /></span></div>
+						<div class="col-4"><span class="image fit"><img src="images/pic04.jpg" alt="" /></span></div>
+						<div class="col-4"><span class="image fit"><img src="images/pic02.jpg" alt="" /></span></div>
+						<div class="col-4"><span class="image fit"><img src="images/pic04.jpg" alt="" /></span></div>
+						<div class="col-4"><span class="image fit"><img src="images/pic02.jpg" alt="" /></span></div>
+						<div class="col-4"><span class="image fit"><img src="images/pic03.jpg" alt="" /></span></div>
+					</div>
+				</div>
+				<h5>Left &amp; Right</h5>
+				<p><span class="image left"><img src="images/pic05.jpg" alt="" /></span>Fringilla nisl. Donec accumsan
+					interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in
+					faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu
+					faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum
+					ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing
+					accumsan eu faucibus. Integer ac pellentesque praesent. Donec accumsan interdum nisi, quis tincidunt
+					felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit
+					adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque
+					praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus
+					vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer
+					ac pellentesque praesent. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu
+					faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum
+					ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing
+					accumsan eu faucibus. Integer ac pellentesque praesent.</p>
+				<p><span class="image right"><img src="images/pic05.jpg" alt="" /></span>Fringilla nisl. Donec accumsan
+					interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in
+					faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu
+					faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum
+					ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing
+					accumsan eu faucibus. Integer ac pellentesque praesent. Donec accumsan interdum nisi, quis tincidunt
+					felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit
+					adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque
+					praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus
+					vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer
+					ac pellentesque praesent. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu
+					faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum
+					ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing
+					accumsan eu faucibus. Integer ac pellentesque praesent.</p>
+			</section>
+
+		</div>
+	</section>
+	-->
+
+	<!-- Footer -->
+	<section id="footer">
+		<ul class="icons">
+			<li><a href="https://www.linkedin.com/in/talimchen/" class="icon brands alt fa-linkedin-in"><span
+						class="label">LinkedIn</span></a></li>
+			<li><a href="https://github.com/LynxTC" class="icon brands alt fa-github"><span
+						class="label">GitHub</span></a></li>
+			<li><a href="mailto:91talim@gmail.com" class="icon solid alt fa-envelope"><span
+						class="label">Email</span></a></li>
+		</ul>
+		<ul class="copyright">
+			<li>&copy; Talim Chen Portfolio</li>
+			<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+		</ul>
+	</section>
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+
+	<!-- 加入打字機特效的 Script -->
+	<script>
+		const texts = ["專案協作", "程式開發技能", "UI/UX 設計", "資料庫管理"];
+		let count = 0;
+		let index = 0;
+		let currentText = "";
+		let letter = "";
+
+		(function type() {
+			if (count === texts.length) {
+				count = 0;
+			}
+			currentText = texts[count];
+			letter = currentText.slice(0, ++index);
+
+			document.getElementById('typing-text').textContent = letter;
+
+			if (letter.length === currentText.length) {
+				setTimeout(() => {
+					// 停頓後直接換下一個詞開始輸入
+					count++;
+					index = 0;
+					type();
+				}, 2000);
+			} else {
+				setTimeout(type, 150);
+			}
+		})();
+	</script>
+
+	<!-- 導覽列自動隱藏特效 Script -->
+	<script>
+		$(function () {
+			var lastScrollTop = 0;
+			var $nav = $('#nav');
+
+			$(window).on('scroll', function () {
+				var st = $(this).scrollTop();
+				// 判斷是否向下滑動，且滑動距離大於導覽列本身高度
+				if (st > lastScrollTop && st > $nav.outerHeight()) {
+					$nav.addClass('hidden'); // 向下滑動，隱藏導覽列
+				} else {
+					$nav.removeClass('hidden'); // 向上滑動，顯示導覽列
+				}
+				lastScrollTop = st;
+			});
+		});
+	</script>
+</body>
+
+</html>
